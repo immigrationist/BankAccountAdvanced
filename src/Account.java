@@ -1,32 +1,37 @@
+import java.util.ArrayList;
+
 class Account{
-    private int accountNumber;
+    private double accountNumber;
     private double balance;
+
     private Person accountHolder;
     private int dateCreated;
     private double withdrawMoney;
 
     private double withdrawLimit;
 
-    public Account(int accountNumber, double balance,
+
+    public Account(double accountNumber, double balance,
                    int dateCreated, double withdrawLimit) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.dateCreated = dateCreated;
         this.withdrawLimit = withdrawLimit;
 
-
         withdrawMoney = 0;
     }
 
-    public int getAccountNumber()
+    public double getAccountNumber()
     {
         return accountNumber;
     }
-    public void setAccountNumber(int accountNumber)
+    public void setAccountNumber(double accountNumber)
     {
         if(accountNumber > 0)
             this.accountNumber = accountNumber;
     }
+
+
 
     public Person getAccountHolder()
     {
@@ -92,16 +97,19 @@ class Account{
         return success;
     }
 
-    public String toString()
+    public void print(){
+        System.out.println(" ACCOUNT NUMBER: " + getAccountNumber() +
+                "\n DATE CREATED: " + getDateCreated() +
+                "\n CURRENT BALANCE: " + getBalance() +
+                "\n WITHDRAW LIMIT: " + getWithdrawLimit() + "\n");
+                System.out.println(getAccountHolder());
+    }
+
+    public void getAccountInformation()
     {
-        String info = "";
-
-        info += getAccountHolder() + "\n";
-        info += "\n ACCOUNT NUMBER: " + getAccountNumber();
-
-        info += "\n DATE CREATED: " + getDateCreated();
-        info += "\n CURRENT BALANCE: " + getBalance() + "\n WITHDRAW LIMIT: " + getWithdrawLimit();
-
-        return info;
+        System.out.println(" ACCOUNT NUMBER: " + getAccountNumber() +
+                "\n DATE CREATED: " + getDateCreated() +
+                "\n CURRENT BALANCE: " + getBalance() +
+                "\n WITHDRAW LIMIT: " + getWithdrawLimit() + "\n");
     }
 }

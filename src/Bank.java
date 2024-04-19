@@ -1,18 +1,19 @@
-import java.io.*;
 import java.util.ArrayList;
 
-public class Bank {
+public class Bank extends Account{
     private ArrayList<Account> accounts;
 
     public Bank() {
-        this.accounts = new ArrayList<Account>();
+        super(0.0,0.0,0,0.0);
+        this.accounts = new ArrayList<>();
     }
+
 
     public void addAccount(Account account) {
         accounts.add(account);
     }
 
-    public Account findAccount(int accountNumber) {
+    public Account findAccount(double accountNumber) {
         for (Account acc : accounts) {
             if (acc.getAccountNumber() == accountNumber) {
                 return acc;
@@ -59,17 +60,6 @@ public class Bank {
         }
         return minBalance;
     }
-
-    public double getAverageDeposits()
-    {
-        if(accounts.isEmpty()) return 0.0;
-
-        double minDeposit = Double.MAX_VALUE;
-        for(Account acc : accounts){
-            minDeposit = Math.min(minDeposit, acc.getBalance());
-        }
-        return minDeposit;
-    }
     public ArrayList<Account> getLowBalanceAccounts(double balanceThreshold) {
         ArrayList<Account> lowBalanceAccounts = new ArrayList<>();
         for (Account acc : accounts) {
@@ -79,24 +69,29 @@ public class Bank {
         }
         return lowBalanceAccounts;
     }
+//    @Override
+//    public void getPersonalInformation(){
+//
+//    }
 
-    public void saveAccountsToFile(String filename) {
-        try (FileOutputStream fileOut = new FileOutputStream("/Users/ahmetberky/Documents/BankAccounts");
-             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-            objectOut.writeObject(accounts);
-            System.out.println("Accounts saved to file: " + "/Users/ahmetberky/Documents/BankAccounts" );
-        } catch (IOException e) {
-            System.out.println("Error saving accounts to file: " + e.getMessage());
-        }
-    }
 
-    public void loadAccountsFromFile(String filename) {
-        try (FileInputStream fileIn = new FileInputStream("/Users/ahmetberky/Documents/BankAccounts");
-             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
-            accounts = (ArrayList<Account>) objectIn.readObject();
-            System.out.println("Accounts loaded from file: " + "/Users/ahmetberky/Documents/BankAccounts");
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error loading accounts from file: " + e.getMessage());
-        }
-    }
+//    public void saveAccountsToFile(String filename) {
+//        try (FileOutputStream fileOut = new FileOutputStream("/Users/ahmetberky/Documents/BankAccounts");
+//             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+//            objectOut.writeObject(accounts);
+//            System.out.println("Accounts saved to file: " + "/Users/ahmetberky/Documents/BankAccounts" );
+//        } catch (IOException e) {
+//            System.out.println("Error saving accounts to file: " + e.getMessage());
+//        }
+//    }
+//
+//    public void loadAccountsFromFile(String filename) {
+//        try (FileInputStream fileIn = new FileInputStream("/Users/ahmetberky/Documents/BankAccounts");
+//             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
+//            accounts = (ArrayList<Account>) objectIn.readObject();
+//            System.out.println("Accounts loaded from file: " + "/Users/ahmetberky/Documents/BankAccounts");
+//        } catch (IOException | ClassNotFoundException e) {
+//            System.out.println("Error loading accounts from file: " + e.getMessage());
+//        }
+//    }
 }

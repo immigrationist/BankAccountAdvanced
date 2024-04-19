@@ -83,9 +83,9 @@ public class Person
         String info = "";
 
         info += "\n ACCOUNT HOLDER:" + "\n NAME: " + getName() + "\n Gender: ";
-        if(getGender() == 'm')
+        if(getGender() == 'm' || getGender() == 'M')
             info += "male";
-        else if(getGender() == 'f')
+        else if(getGender() == 'f' || getGender() == 'F')
             info += "female";
 
         info += "\n Age: " + getAge() + "\n Phone Number: " + getPhoneNumber() + "\n Address: " + getHomeAddress();
