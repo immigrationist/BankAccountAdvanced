@@ -20,6 +20,24 @@ class Account{
 
         withdrawMoney = 0;
     }
+ /*
+     add a person class and link the person information with the account
+     number it is entered with so when you print all the information
+     you receive the information of the account number you assigned with
+     the problem was that when we tried to print the person with the account
+     the last person that was entered in the system would appear with the
+     account details of someone else
+
+        so lets say an account was created and lets set its account number to 123.
+        we have all information entered at this point and the owner of the account is JACK.
+        now we do everything we want and quit to main menu.
+        now we are creating another account but this time with the account number 987.
+        the owner of this account is ashley and again we have entered every information.
+        after ashley has created her account, we are logging back in jack's account to see his personal information
+        and account information. The result comes back with jacks account details and ashley's personal information
+        instead of jack's personal information.
+     */
+
 
     public double getAccountNumber()
     {
